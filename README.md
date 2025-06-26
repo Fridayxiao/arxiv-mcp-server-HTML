@@ -1,3 +1,15 @@
+# 修改说明
+
+本项目基于 [arxiv-mcp-server](https://github.com/blazickjp/arxiv-mcp-server) 项目修改而来，主要变更包括：
+
+- 使用html作为转换markdown的原本, 而非pdf, 大幅提高了转换速度与表格的识别率, 但和原版使用pdf转换一样无法识别图片, 后续可能继续优化
+
+# changes
+
+base on [arxiv-mcp-server](https://github.com/blazickjp/arxiv-mcp-server), modified:
+
+- Using HTML as the source for markdown conversion instead of PDF, significantly improving conversion speed and table recognition rate. However, like the original PDF conversion, it cannot recognize images. Future optimizations may be implemented.
+
 [![Twitter Follow](https://img.shields.io/twitter/follow/JoeBlazick?style=social)](https://twitter.com/JoeBlazick)
 [![smithery badge](https://smithery.ai/badge/arxiv-mcp-server)](https://smithery.ai/server/arxiv-mcp-server)
 [![Python Version](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
@@ -30,69 +42,32 @@ The ArXiv MCP Server provides a bridge between AI assistants and arXiv's researc
 
 ## 🚀 Quick Start
 
-### Installing via Smithery
-
-To install ArXiv Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/arxiv-mcp-server):
-
-```bash
-npx -y @smithery/cli install arxiv-mcp-server --client claude
-```
-
 ### Installing Manually
+
 Install using uv:
 
-```bash
-uv tool install arxiv-mcp-server
-```
+1. download dist\arxiv_mcp_server-0.2.11-py3-none-any.whl
 
-For development:
+2. using uv:
 
 ```bash
-# Clone and set up development environment
-git clone https://github.com/blazickjp/arxiv-mcp-server.git
-cd arxiv-mcp-server
-
-# Create and activate virtual environment
-uv venv
-source .venv/bin/activate
-
-# Install with test dependencies
-uv pip install -e ".[test]"
+uv tool install arxiv_mcp_server-0.2.11-py3-none-any.whl
 ```
+
+
 
 ### 🔌 MCP Integration
 
-Add this configuration to your MCP client config file:
+Add this configuration to your MCP client config file, remember to change the path argument to your local path:
 
 ```json
 {
     "mcpServers": {
         "arxiv-mcp-server": {
-            "command": "uv",
+            "command": "arxiv-mcp-server-HTML",
             "args": [
-                "tool",
-                "run",
-                "arxiv-mcp-server",
-                "--storage-path", "/path/to/paper/storage"
-            ]
-        }
-    }
-}
-```
-
-For Development:
-
-```json
-{
-    "mcpServers": {
-        "arxiv-mcp-server": {
-            "command": "uv",
-            "args": [
-                "--directory",
-                "path/to/cloned/arxiv-mcp-server",
-                "run",
-                "arxiv-mcp-server",
-                "--storage-path", "/path/to/paper/storage"
+                "--storage-path", 
+                "/path/to/paper/storage"
             ]
         }
     }
@@ -182,6 +157,11 @@ python -m pytest
 ```
 
 ## 📄 License
+
+
+
+Copyright (c) 2025 Your Name
+Copyright (c) 2024 Original Author
 
 Released under the MIT License. See the LICENSE file for details.
 

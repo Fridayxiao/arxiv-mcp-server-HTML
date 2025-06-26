@@ -48,7 +48,7 @@ testpaths = ["tests"]
 addopts = "-v --cov=arxiv_mcp_server"
 
 [project.scripts]
-arxiv-mcp-server = "arxiv_mcp_server:main"
+arxiv-mcp-server-HTML = "arxiv_mcp_server:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/arxiv_mcp_server"]
