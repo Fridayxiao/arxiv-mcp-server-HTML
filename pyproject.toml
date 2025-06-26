@@ -25,7 +25,8 @@ dependencies = [
     "aiofiles>=23.2.1",
     "uvicorn>=0.30.0",
     "sse-starlette>=1.8.2",
-    "anyio>=4.2.0"
+    "anyio>=4.2.0",
+    "markdownify>=1.1.0",
 ]
 
 [project.optional-dependencies]
@@ -47,7 +48,7 @@ testpaths = ["tests"]
 addopts = "-v --cov=arxiv_mcp_server"
 
 [project.scripts]
-arxiv-mcp-server = "arxiv_mcp_server:main"
+arxiv-mcp-server-covert_from_HTML = "arxiv_mcp_server:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/arxiv_mcp_server"]
@@ -72,3 +73,7 @@ exclude = '''
   | dist
 )/
 '''
+
+[[tool.uv.index]]
+url = "https://mirrors.aliyun.com/pypi/simple"
+default = true
