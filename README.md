@@ -2,13 +2,17 @@
 
 本项目基于 [arxiv-mcp-server](https://github.com/blazickjp/arxiv-mcp-server) 项目修改而来，主要变更包括：
 
-- 使用html作为转换markdown的原本, 而非pdf, 大幅提高了转换速度与表格的识别率, 但和原版使用pdf转换一样无法识别图片, 后续可能继续优化
+- 使用HTML作为转换markdown的原本, 而非PDF, 大幅提高了转换速度与表格的识别率, 但和原版使用PDF转换一样无法识别图片, 后续可能继续优化
+- 某些2023年以前的论文无HTML版本, 因此改用原版使用的pymupdf4llm, 并做了一些优化
 
 # changes
 
 base on [arxiv-mcp-server](https://github.com/blazickjp/arxiv-mcp-server), modified:
 
 - Using HTML as the source for markdown conversion instead of PDF, significantly improving conversion speed and table recognition rate. However, like the original PDF conversion, it cannot recognize images. Future optimizations may be implemented.
+- Some papers published in 2023 or earlier do not have HTML versions, so they are converted using the original pymupdf4llm and optimized.
+
+# original information
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/JoeBlazick?style=social)](https://twitter.com/JoeBlazick)
 [![smithery badge](https://smithery.ai/badge/arxiv-mcp-server)](https://smithery.ai/server/arxiv-mcp-server)
@@ -18,7 +22,7 @@ base on [arxiv-mcp-server](https://github.com/blazickjp/arxiv-mcp-server), modif
 [![PyPI Downloads](https://img.shields.io/pypi/dm/arxiv-mcp-server.svg)](https://pypi.org/project/arxiv-mcp-server/)
 [![PyPI Version](https://img.shields.io/pypi/v/arxiv-mcp-server.svg)](https://pypi.org/project/arxiv-mcp-server/)
 
-# ArXiv MCP Server
+## ArXiv MCP Server
 
 > 🔍 Enable AI assistants to search and access arXiv papers through a simple MCP interface.
 
@@ -40,15 +44,17 @@ The ArXiv MCP Server provides a bridge between AI assistants and arXiv's researc
 - 🗃️ **Local Storage**: Papers are saved locally for faster access
 - 📝 **Prompts**: A Set of Research Prompts
 
-## 🚀 Quick Start
+# 🚀 Quick Start
 
-### Installing Manually
+## Installing Manually
 
 Install using uv:
 
 1. download dist\arxiv_mcp_server-0.2.11-py3-none-any.whl
 
-2. using uv:
+2. bash switch to the download directory
+
+3. using uv:
 
 ```bash
 uv tool install arxiv_mcp_server-0.2.11-py3-none-any.whl
@@ -56,7 +62,7 @@ uv tool install arxiv_mcp_server-0.2.11-py3-none-any.whl
 
 
 
-### 🔌 MCP Integration
+## 🔌 MCP Integration
 
 Add this configuration to your MCP client config file, remember to change the path argument to your local path:
 
